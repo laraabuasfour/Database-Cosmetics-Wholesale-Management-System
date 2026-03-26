@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.db.controllers.SuppliersTableController">
+
+   <children>
+
+      <!-- Title -->
+      <Label layoutX="251.0" layoutY="22.0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #343a40;" text="Supplier Information" />
+
+      <!--Q1-->
+      <TextField fx:id="searchField" layoutX="26.0" layoutY="61.0" prefHeight="30.0" prefWidth="558.0" promptText="Search by name or location" style="-fx-background-color: #001f3f; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 6;" />
+
+      <!-- Search Button -->
+      <Button fx:id="searchBtn" layoutX="595.0" layoutY="61.0" onAction="#onSearch" prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: #001f3f; -fx-text-fill: white; -fx-background-radius: 10;" text="🔍 Search" />
+
+      <!-- Table -->
+      <TableView fx:id="supplierTable" layoutX="20.0" layoutY="103.0" prefHeight="268.0" prefWidth="660.0" style="-fx-background-color: #001f3f; -fx-text-fill: white; -fx-border-color: #dee2e6; -fx-border-radius: 5;">
+         <columns>
+            <TableColumn fx:id="id" prefWidth="64.0" text="Id" />
+            <TableColumn fx:id="name" prefWidth="128.0" text="Name" />
+            <TableColumn fx:id="phoneNumber" prefWidth="137.0" text="Phone Number" />
+            <TableColumn fx:id="location1" prefWidth="157.0" text="Location" />
+            <TableColumn fx:id="actions" prefWidth="157.0" text="Actions" />
+         </columns>
+      </TableView>
+
+      <!--Q1-->
+      <Label fx:id="statsLabel" layoutX="42.0" layoutY="387.0" prefHeight="3.0" prefWidth="138.0" style="-fx-background-color: #6f42c1; -fx-text-fill: white; -fx-padding: 6 12 6 12; -fx-background-radius: 8; -fx-font-size: 14px;" text="Total Suppliers: 0" />
+
+      <!--Q1-->
+      <Button fx:id="showChartBtn" layoutX="303.0" layoutY="391.0" onAction="#showChart" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 10;" text="📊 Show Chart" />
+
+      <Button fx:id="btnId" layoutX="532.0" layoutY="390.0" onAction="#onClick" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 10;" text="➕ Add Supplier" />
+
+   </children>
+</AnchorPane>

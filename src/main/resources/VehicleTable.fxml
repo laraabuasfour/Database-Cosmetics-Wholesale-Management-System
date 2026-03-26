@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.db.controllers.VehicleTableController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="214.0" layoutY="22.0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #343a40;" text="Vehicle Information" />
+
+        <!-- Table -->
+        <TableView fx:id="vehicleTable" layoutX="20.0" layoutY="103.0" prefHeight="268.0" prefWidth="660.0" style="-fx-background-color: #001f3f; -fx-text-fill: white; -fx-border-color: #dee2e6; -fx-border-radius: 5;">
+            <columns>
+                <TableColumn fx:id="permit_number" prefWidth="100" text="Permit Number" />
+                <TableColumn fx:id="vcapacity" prefWidth="90" text="Capacity" />
+                <TableColumn fx:id="vnum" prefWidth="120" text="Vehicle Number" />
+                <TableColumn fx:id="phonenum" prefWidth="120" text="Phone Number" />
+                <TableColumn fx:id="eid" prefWidth="100" text="Employee ID" />
+                <TableColumn fx:id="actions" prefWidth="130" text="Actions" />
+            </columns>
+        </TableView>
+
+        <!-- Label inside purple box -->
+        <Label fx:id="vehicleStatsLabel" layoutX="58.0" layoutY="382.0" style="-fx-background-color: #6f42c1; -fx-text-fill: white; -fx-padding: 6 12 6 12; -fx-background-radius: 8; -fx-font-size: 14px;" text="Total Vehicles: 0" />
+
+        <!-- Search Field (dark blue) -->
+        <TextField fx:id="searchField" layoutX="26.0" layoutY="61.0" prefHeight="30.0" prefWidth="558.0" promptText="Search by vehicle number" style="-fx-background-color: #001f3f; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 6;" />
+
+        <!-- Search Button (dark blue) -->
+        <Button fx:id="searchBtn" layoutX="595.0" layoutY="63.0" onAction="#onSearchClicked" prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: #001f3f; -fx-text-fill: white; -fx-background-radius: 10; -fx-pref-height: 20;" text="🔍 Search" />
+
+        <!-- Filter Button -->
+        <Button fx:id="filterButton" layoutX="305.0" layoutY="379.0" onAction="#onFilterClick" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 10; -fx-pref-height: 36;" text="⚙ Filter &gt; 500" />
+
+        <!-- Add Vehicle Button -->
+        <Button fx:id="addButton" layoutX="537.0" layoutY="379.0" onAction="#onClick" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 10; -fx-pref-height: 36;" text="➕ Add Vehicle" />
+
+    </children>
+</AnchorPane>

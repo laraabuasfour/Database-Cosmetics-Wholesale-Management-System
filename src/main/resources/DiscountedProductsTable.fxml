@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="396.0" prefWidth="631.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.db.controllers.DiscountedProductsTableController">
+    <children>
+
+        <!-- Centered Title -->
+        <HBox layoutY="15.0" prefWidth="631.0" alignment="CENTER">
+            <children>
+                <Label text="🏷️ Discounted Products" style="-fx-font-size: 22px; -fx-text-fill: #795548; -fx-font-weight: bold;">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+
+        <!-- Table -->
+        <TableView fx:id="discountTable" layoutX="38.0" layoutY="60.0" prefHeight="249.0" prefWidth="555.0" style="-fx-font-size: 14px;">
+            <columns>
+                <TableColumn fx:id="id" prefWidth="75.0" text="Product ID" />
+                <TableColumn fx:id="name" prefWidth="99.0" text="Product Name" />
+                <TableColumn fx:id="sellingPrice" prefWidth="91.0" text="Selling Price" />
+                <TableColumn fx:id="quantity" text="Quantity" />
+                <TableColumn fx:id="expiringDate" prefWidth="100.0" text="Expiring Date" />
+                <TableColumn fx:id="discountedPrice" prefWidth="109.0" text="Discounted Price" />
+            </columns>
+        </TableView>
+
+        <!-- Close Button -->
+        <Button fx:id="closeBtn" layoutX="275.0" layoutY="330.0" mnemonicParsing="false" onAction="#closedClicked"
+                prefHeight="37.0" prefWidth="80.0" text="✖ Close"
+                style="-fx-background-color: #795548; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10;">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+
+    </children>
+</AnchorPane>

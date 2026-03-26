@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="704.0" prefWidth="973.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.db.controllers.ProductTableController">
+   <children>
+
+      <!-- Scene Title -->
+      <HBox alignment="CENTER" layoutX="0.0" layoutY="10.0" prefHeight="30.0" prefWidth="885.0">
+         <children>
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2196F3;" text="🧴 Products Table">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+
+      <!-- Filter Panel -->
+      <GridPane hgap="15.0" layoutX="20.0" layoutY="50.0" prefHeight="77.0" prefWidth="863.0" vgap="15.0">
+         <children>
+            <!-- Name Search -->
+            <Label text="Search by Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="nameField" prefWidth="180.0" promptText="Enter product name..." style="-fx-background-radius: 6; -fx-border-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <!-- Selling Price Range -->
+            <Label text="Selling Price:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <HBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="minSellingPriceField" prefWidth="80.0" promptText="Min" style="-fx-background-radius: 6;" />
+                  <Label text="to" />
+                  <TextField fx:id="maxSellingPriceField" prefWidth="80.0" promptText="Max" style="-fx-background-radius: 6;" />
+               </children>
+            </HBox>
+
+            <!-- Expiring Date Range -->
+            <Label text="Expiring Date:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <HBox spacing="5.0" GridPane.columnIndex="3" GridPane.rowIndex="0">
+               <children>
+                  <DatePicker fx:id="fromExpiringDatePicker" prefWidth="130.0" promptText="From Date" style="-fx-background-radius: 6;" />
+                  <Label text="to" />
+                  <DatePicker fx:id="toExpiringDatePicker" prefWidth="130.0" promptText="To Date" style="-fx-background-radius: 6;" />
+               </children>
+            </HBox>
+
+            <!-- Filter Buttons -->
+            <HBox spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <children>
+                  <Button fx:id="filterButton" onAction="#onFilter" prefWidth="100.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 6;" text="Apply Filters" />
+                  <Button fx:id="clearFiltersButton" onAction="#onClearFilters" prefWidth="100.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-background-radius: 6;" text="Clear Filters" />
+               </children>
+            </HBox>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+
+      <!-- Product Table -->
+      <TableView fx:id="productTable" layoutX="20.0" layoutY="135.0" prefHeight="252.0" prefWidth="916.0" style="-fx-font-size: 13px;">
+         <columns>
+            <TableColumn fx:id="id" prefWidth="44.0" text="ID" />
+            <TableColumn fx:id="name" prefWidth="181.0" text="Name" />
+            <TableColumn fx:id="sellingPrice" prefWidth="134.0" text="Selling Price" />
+            <TableColumn fx:id="buyingPrice" prefWidth="141.0" text="Buying Price" />
+            <TableColumn fx:id="expiringDate" prefWidth="159.0" text="Expiring Date" />
+            <TableColumn fx:id="quantity" prefWidth="107.0" text="Quantity" />
+            <TableColumn fx:id="actions" prefWidth="149.0" text="Actions" />
+         </columns>
+      </TableView>
+
+      <!-- Action Buttons -->
+      <HBox layoutX="380.0" layoutY="396.0" spacing="20.0">
+         <children>
+            <Button fx:id="addbtn" mnemonicParsing="false" onAction="#addProduct" prefHeight="32.0" prefWidth="140.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 6;" text="➕ Add Product" />
+            <Button fx:id="discountBtn" mnemonicParsing="false" onAction="#discountedClick" prefHeight="32.0" prefWidth="180.0" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 6;" text="🤑 Discounted Products" />
+         </children>
+      </HBox>
+
+      <!-- Chart Section -->
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="439.0" spacing="10.0">
+         <children>
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Chart Data:" />
+            <ComboBox fx:id="chartDataComboBox" onAction="#onChartDataChange" prefWidth="200.0" promptText="Select data to display..." />
+         </children>
+      </HBox>
+
+      <BarChart fx:id="productChart" layoutX="14.0" layoutY="477.0" prefHeight="200.0" prefWidth="928.0">
+         <xAxis>
+            <CategoryAxis fx:id="productAxis" side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis fx:id="valueAxis" side="LEFT" />
+         </yAxis>
+      </BarChart>
+
+   </children>
+</AnchorPane>

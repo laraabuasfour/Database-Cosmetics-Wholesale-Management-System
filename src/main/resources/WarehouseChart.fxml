@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Query1 -->
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="465.0" prefWidth="500.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.db.controllers.WarehouseChartController">
+
+    <children>
+        <!-- Title label -->
+        <Label layoutX="32.0" layoutY="34.0" style="-fx-text-fill: #007BFF; -fx-font-weight: bold;" text="📊 Warehouse Count by Location">
+            <font>
+                <Font size="20" />
+            </font>
+        </Label>
+
+        <!-- Bar chart -->
+        <BarChart fx:id="warehouseBarChart" layoutX="23.0" layoutY="82.0" prefHeight="355.0" prefWidth="454.0" style="-fx-background-color: white; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);" title="">
+            <xAxis>
+                <CategoryAxis label="Location" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Warehouse Count" />
+            </yAxis>
+        </BarChart>
+    </children>
+</AnchorPane>
