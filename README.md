@@ -76,3 +76,7 @@ The project includes SQL files for creating and populating the database tables, 
 - warehouses  
 - employees  
 - vehicles  
+
+## Team Members
+- Lara Abu Asfour
+- Tasneem Shelleh
